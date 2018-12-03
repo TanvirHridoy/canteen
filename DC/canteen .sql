@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2018 at 03:58 PM
+-- Generation Time: Dec 03, 2018 at 07:01 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -61,9 +61,6 @@ INSERT INTO `items` (`id`, `name`, `picture`, `price`, `type`, `status`) VALUES
 CREATE TABLE `oder` (
   `id` int(11) NOT NULL,
   `student_id` varchar(10000) NOT NULL,
-  `student_name` varchar(1000) NOT NULL,
-  `student_phone` varchar(100) NOT NULL,
-  `student_email` varchar(100) NOT NULL,
   `c_date` varchar(50) NOT NULL,
   `c_time` varchar(50) NOT NULL,
   `p_date` varchar(50) NOT NULL,
@@ -71,7 +68,6 @@ CREATE TABLE `oder` (
   `price` varchar(10) NOT NULL,
   `p_status` varchar(10) NOT NULL,
   `notification` varchar(100) NOT NULL,
-  `o_item_id` int(100) NOT NULL,
   `status` int(10) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -84,21 +80,8 @@ CREATE TABLE `oder` (
 CREATE TABLE `o_items` (
   `id` int(11) NOT NULL,
   `order_id` int(100) NOT NULL,
-  `item1` int(100) NOT NULL,
-  `item2` int(100) NOT NULL,
-  `item3` int(100) NOT NULL,
-  `item4` int(100) NOT NULL,
-  `item5` int(100) NOT NULL,
-  `item6` int(100) NOT NULL,
-  `item7` int(100) NOT NULL,
-  `item8` int(100) NOT NULL,
-  `item9` int(100) NOT NULL,
-  `item10` int(100) NOT NULL,
-  `item11` int(100) NOT NULL,
-  `item12` int(100) NOT NULL,
-  `item13` int(100) NOT NULL,
-  `item14` int(100) NOT NULL,
-  `item15` int(100) NOT NULL
+  `item_id` int(100) NOT NULL,
+  `item_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -122,7 +105,7 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`id`, `name`, `student_id`, `password`, `email`, `phone_no`) VALUES
 (1, 'sadia 420', '420420420420', '12345678', 'sadia420@gmail.com', '01711111111'),
-(2147483647, 'tanvir hridoy', '21180200823', '12345678', 'hridoy@gmail.com', '01755091665');
+(2, 'tanvir hridoy', '21180200823', '12345678', 'hridoy@gmail.com', '01755091665');
 
 -- --------------------------------------------------------
 

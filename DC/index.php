@@ -728,7 +728,7 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
 
 								include ("database.php");
 
-								$usersList = $conn1->query("SELECT * FROM `items`");
+								$usersList = $conn1->query("SELECT * FROM `items` WHERE status='1'");
 
 								foreach($usersList AS $eachRow)
 								{
@@ -795,6 +795,17 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
         <div class="modal-content">
           <div class="modal-body">
 			<div class="row">
+			<?php
+					$s_name = $_REQUEST['s_name'];
+					$s_id = $_REQUEST['s_id'];
+					$s_phone = $_REQUEST['s_phone'];
+					$s_email = $_REQUEST['s_email'];
+					$c_date = $_REQUEST['c_date'];
+					$c_time = $_REQUEST['c_time'];
+					$p_date = $_REQUEST['p_date'];
+					$p_time = $_REQUEST['p_time'];
+					$notificatio = $_REQUEST['notification'];
+					$items = $_REQUEST['items'];
 			
 				<div class="col-md-12"><center><h3>Receipt</h3></center></div>
 				<div class="row col-md-6">
@@ -862,13 +873,7 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
     <!-- loader -->
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-	<script type="text/javascript">
-		$( document ).ready(function() {
-			$( "#selectNEWBox" ).change(function() {
-			  $('#fileUploadModal').modal('show')
-			});
-		});
-	</script>
+	
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
