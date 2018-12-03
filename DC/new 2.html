@@ -1,0 +1,35 @@
+<select class="selectpicker" id = "selectNEWBox">
+    <option value = "1">New</option>
+    <option value = "2">Old</option>
+    <option value = "3">Scrap</option>
+</select>
+
+<!-- Modal when adding comment for upload -->
+  <div class="modal fade" id="fileUploadModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Comment</h4>
+        </div>
+        <div class="modal-body">
+          <p><textarea id = "commentsUpload"class="form-control custom-control" rows="3" style="resize:none"></textarea></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" onclick="submitXYX()" data-dismiss="modal">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+	
+$( document ).ready(function() {
+    $( "#selectNEWBox" ).change(function() {
+      $('#fileUploadModal').modal('show')
+    });
+});
+
+</script>

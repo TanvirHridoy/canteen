@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -638,36 +642,36 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
                   <small>CLOSE </small><span aria-hidden="true">&times;</span>
                 </button>
                 <h1 class="mb-4">Make A Order</h1>  
-                <form action="#" method="post">
+                <form action="index.php" method="post">
                   <div class="row">
                     <div class="col-md-6 form-group order">
 					<label for="">Enter your Name</label>
-                      <input type="text" class="form-control" id="m_fname">
+                      <input type="text" required name="s_name" class=" form-control" id="m_fname">
                     </div>
 					<div class="col-md-6 form-group order">
 					<label for="">Enter your Student id</label>
-                      <input type="text" class="form-control" placeholder=""id="m_fname">
+                      <input type="text" required name="s_id" class="form-control" placeholder=""id="m_fname">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 form-group order">
 					<label for="">Enter your phone no</label>
-                      <input type="text" class="form-control"placeholder=""onkeypress='return event.charCode>= 48 && event.charCode <=57' id="m_phone">
+                      <input type="text"required name="s_phone" class="form-control"placeholder=""onkeypress='return event.charCode>= 48 && event.charCode <=57' id="m_phone">
                     </div>
 					<div class="col-md-6 form-group order">
 					<label for="">Enter your email</label>
-                      <input type="email" class="form-control"placeholder=""onkeypress='return event.charCode>= 48 && event.charCode <=57' id="m_phone">
+                      <input type="email" required  class="form-control" name="email">
                     </div>
                   </div>
 
                   <div class="row">
 					<div class="col-md-6 form-group order">
 						<label for="">Current Date</label>
-                      <input type="date" placeholder="" class="form-control" id="date">
+                      <input type="date" required placeholder="" name="c_date"class="form-control" id="date">
                     </div>
                     <div class="col-md-6 form-group order">
 						<label for="">Current Time</label>
-                      <input type="time" class="form-control" value="c_time" id="time">
+                      <input type="time" required  class="form-control" name="c_time" id="time">
 					  
 						
                     </div>
@@ -675,14 +679,16 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
                   </div>
 				  <div class="row">
 					  <div class="row col-md-6">
+					  
 						<div class="col-md-12 form-group order">
+						
 						  <label for="">Prefered Date</label>
-						  <input type="date" class="form-control" id="date">
+						  <input type="date" name="p_date"required  class="form-control" id="date">
 						</div>
 						<div class="col-md-12 form-group order">
-						  <label for="">Prefered Time</label>
+						  <label for="p_time">Prefered Time</label>
 						    
-							<select name="p_time" class="form-control">
+							<select name="p_time" required id="p_time" class="form-control">
 								  <option value="#">--select--</option>
 								  <option value="12:30:pm">12:30 PM</option>
 								  <option value="01:00:pm">01:00 PM</option>
@@ -704,9 +710,9 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
 						
 						<div class="col-md-12 form-group order">
 						<center><h4>-:Notification Time:-</h4></center><br />
-							<input type="radio"  class="col-md-6 " name="radio" id="items">10 minute</checkbox><br />
-							<input type="radio" class="col-md-6 " name="radio"  id="items">20 minute</checkbox><br />
-							<input type="radio" class="col-md-6"  name="radio" id="items">30 minute</checkbox><br />
+							<input type="radio"  class="col-md-6 " name="notification" value="1" id="items">10 minute</checkbox><br />
+							<input type="radio" class="col-md-6 " name="notification"  value="2" id="items">20 minute</checkbox><br />
+							<input type="radio" class="col-md-6"  name="notification"  value="3" id="items">30 minute</checkbox><br />
 						</div>
 					  </div>
 					</div>
@@ -714,24 +720,43 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
 				  <div class="col-md-12 order">
 						<center><h4>-:Available Items:-</h4></center>
 				  </div>
-
+					
                   <div class="row order">
-                        <div class="col-md-6 form-group">
-						  <input type="checkbox" class="col-md-6"  id="items">Burger price: 40/-</checkbox>
-						  <input type="checkbox" class="col-md-6"  id="items">Samosa price: 6/-</checkbox>
-						  <input type="checkbox" class="col-md-6"  id="items">khichuri price:80/-</checkbox>
+                        <div class=" row form-group">
+						
+								<?php 
+
+								include ("database.php");
+
+								$usersList = $conn1->query("SELECT * FROM `items`");
+
+								foreach($usersList AS $eachRow)
+								{
+
+									echo '
+									<tr>
+										
+										<div class="col-md-4"><input type="checkbox" name="items" class="col-md-1" value="'.$eachRow['id'].'" id="items"> <label for="items">'.$eachRow['name'].' price: '.$eachRow['price'].'/-</label> <br /></div>
+
+										
+										
+									</tr>
+									';
+								}
+
+								?>
+
 						</div>
-						 <div class="col-md-6 form-group">
-							  <input type="checkbox" class="col-md-6"  id="items">Tea Price:12/-</checkbox>
-							  <input type="checkbox" class="col-md-6"  id="items">Chawmeen price:30/-</checkbox>
-							  <input type="checkbox" class="col-md-6"  id="items">Chicken price:35 /-</checkbox>
-						 </div>
+						
+						 
                   </div>
                   
                   <div class="row">
                     <div class="col-md-12 form-group">
-                      <center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#recipeModal"data-dismiss="modal" aria-label="Close">Confirm Order</button></center>
+                      <center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" 
+					  data-target="#recipeModal"data-dismiss="modal" aria-label="Close" name="confirm">Confirm Order</button></center>
                     </div>
+					
                   </div>
 
                 </form>
@@ -744,18 +769,48 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
     </div>
 
     <!-- END Modal -->
-	<!-- model 2-->
+	<!--modal 3-->
+	<div id="paymentModal fileUploadModal" class="modal fade"role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="row ">
+						<center><h3 class="col-md-12"><b>Online Payment</b></h3></center>
+						<h4 class="col-md-12">payment amount : 110 taka</h4>
+						<h4 class="col-md-6">Card: </h4>
+						<input type="text" class="col-md-6" placeholder=""onkeypress='return event.charCode>= 48 && event.charCode <=57' />
+						<button type="submit" class="col-md-6"><b>ok</b></button>
+						<button type="cancel" class="col-md-6 close" data-dismiss="modal" aria-label="Close">>cancel</button>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	<!-- modal 2-->
 		<div id="recipeModal" class="modal fade" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-body">
 			<div class="row">
+			
 				<div class="col-md-12"><center><h3>Receipt</h3></center></div>
-				<div class="col-md-12"><h4>Order no: demo231</h4></div>
-				<div class="col-md-12"><h5><b>Name:</b> Sadia Islam Ritu</h5>
+				<div class="row col-md-6">
+				<h5><b>Name:</b> Sadia Islam Ritu</h5>
 				<h5><b>Student ID:</b> 420420420</h5>
 				<h5><b>Phone No:</b> 017111111111</h5>
 				<h5><b>Email:</b> sadia420@gmail.com</h5>
+				</div>
+				<div class="row col-md-6 form-group">
+					<h4 for="payment"><b>How would you like to pay?</b></h4>
+					<select name="payment" class="form-control" id="payment selectNEWBox">
+						<option value="#">-Select Payment Options-</option>
+						<option value="online" >Online</option>
+						<option value="offline">Offline</option>
+					
+					</select>
 				</div>
 				<div class="col-md-12"><center><h3><b>Ordered Items</b></h3></center></div>
 				<table class="table table-striped table-hover">
@@ -807,7 +862,13 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
     <!-- loader -->
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			$( "#selectNEWBox" ).change(function() {
+			  $('#fileUploadModal').modal('show')
+			});
+		});
+	</script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

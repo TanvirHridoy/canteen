@@ -7,8 +7,7 @@
     }catch(PDOException $e){
         die('Error connecting to database');
     }
-	if($conn1)
-	echo "Connected to Database<br /><br />";
+	
 
 ?> 
 
