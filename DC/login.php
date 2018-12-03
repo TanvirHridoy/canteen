@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['USER_SESSION'])){
-    header("Location:dashboard.php");
+    
 }
 include "database.php"; 
 		

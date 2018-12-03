@@ -1,31 +1,11 @@
 
 
+<?php
+	session_start();
+	include"head.php";
+	
+?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Canteen with Pre-booking services</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700|Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-    
-
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
   <body data-spy="scroll" data-target="#site-navbar" data-offset="200">
     
     <nav class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light" id="site-navbar">
@@ -43,8 +23,19 @@
             <li class="nav-item"><a href="#section-menu" class="nav-link">Menu</a></li>
             <li class="nav-item"><a href="#section-gallery" class="nav-link">Gallery</a></li>
             <li class="nav-item"><a href="#section-contact" class="nav-link">Contact</a></li>
-            <li class="nav-item"><a href="login.php" class="nav-link">Log in</a></li>
-            <li class="nav-item"><a href="logout.php" class="nav-link">Log Out</a></li>
+            <?php
+				
+				if(isset($_SESSION['USER_SESSION'])){
+						echo '
+						<p>'.$_SESSION['USER_FULLNAME'].'</p>
+						<li class="nav-item"><a href="logout.php" class="nav-link">Log Out</a></li>
+							
+						';
+					}
+					else{echo '<li class="nav-item"><a href="login.php" class="nav-link">Log in</a></li>';}
+			?>
+			
+            
 			
           </ul>
         </div>
@@ -58,7 +49,7 @@
           <div class="col-md-12">
             <h1 class="site-heading site-animate mb-3">Welcome To DIU Canteen</h1>
             <h2 class="h5 site-subheading mb-5 site-animate">Don't Waste Time,Pre-Book Item & Take It </h2>    
-            <p><a href="#" target="_blank" class="btn btn-outline-white btn-lg site-animate" data-toggle="modal" data-target="#reservationModal">Order Now</a></p>
+            <p><a href="order.php" target="_blank" class="btn btn-outline-white btn-lg site-animate">Order Now</a></p>
           </div>
         </div>
       </div>
@@ -630,267 +621,14 @@ Copyright &copy; All rights reserved to DIU Canteen </p>
     
     
 
-    <!-- Modal -->
-    <div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-body ">
-            <div class="row">
-              
-              <div class="col-lg-12 p-5">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <small>CLOSE </small><span aria-hidden="true">&times;</span>
-                </button>
-                <h1 class="mb-4">Make A Order</h1>  
-                <form action="index.php" method="post">
-                  <div class="row">
-                    <div class="col-md-6 form-group order">
-					<label for="">Enter your Name</label>
-                      <input type="text" required name="s_name" class=" form-control" id="m_fname">
-                    </div>
-					<div class="col-md-6 form-group order">
-					<label for="">Enter your Student id</label>
-                      <input type="text" required name="s_id" class="form-control" placeholder=""id="m_fname">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 form-group order">
-					<label for="">Enter your phone no</label>
-                      <input type="text"required name="s_phone" class="form-control"placeholder=""onkeypress='return event.charCode>= 48 && event.charCode <=57' id="m_phone">
-                    </div>
-					<div class="col-md-6 form-group order">
-					<label for="">Enter your email</label>
-                      <input type="email" required  class="form-control" name="email">
-                    </div>
-                  </div>
 
-                  <div class="row">
-					<div class="col-md-6 form-group order">
-						<label for="">Current Date</label>
-                      <input type="date" required placeholder="" name="c_date"class="form-control" id="date">
-                    </div>
-                    <div class="col-md-6 form-group order">
-						<label for="">Current Time</label>
-                      <input type="time" required  class="form-control" name="c_time" id="time">
-					  
-						
-                    </div>
-					
-                  </div>
-				  <div class="row">
-					  <div class="row col-md-6">
-					  
-						<div class="col-md-12 form-group order">
-						
-						  <label for="">Prefered Date</label>
-						  <input type="date" name="p_date"required  class="form-control" id="date">
-						</div>
-						<div class="col-md-12 form-group order">
-						  <label for="p_time">Prefered Time</label>
-						    
-							<select name="p_time" required id="p_time" class="form-control">
-								  <option value="#">--select--</option>
-								  <option value="12:30:pm">12:30 PM</option>
-								  <option value="01:00:pm">01:00 PM</option>
-								  <option value="01:30:pm">01:30 PM</option>
-								  <option value="02:00:pm">02:00 PM</option>
-								  <option value="02:30:pm">02:30 PM</option>
-								  <option value="03:00:pm">03:00 PM</option>
-								  <option value="03:30:pm">03:30 PM</option>
-								  <option value="04:00:pm">04:00 PM</option>
-								  <option value="04:30:pm">04:30 PM</option>
-								  
-							</select>
-							
-						</div>
-						
-					  </div>
-					  <div class="row col-md-6">
-						
-						
-						<div class="col-md-12 form-group order">
-						<center><h4>-:Notification Time:-</h4></center><br />
-							<input type="radio"  class="col-md-6 " name="notification" value="1" id="items">10 minute</checkbox><br />
-							<input type="radio" class="col-md-6 " name="notification"  value="2" id="items">20 minute</checkbox><br />
-							<input type="radio" class="col-md-6"  name="notification"  value="3" id="items">30 minute</checkbox><br />
-						</div>
-					  </div>
-					</div>
-					
-				  <div class="col-md-12 order">
-						<center><h4>-:Available Items:-</h4></center>
-				  </div>
-					
-                  <div class="row order">
-                        <div class=" row form-group">
-						
-								<?php 
-
-								include ("database.php");
-
-								$usersList = $conn1->query("SELECT * FROM `items` WHERE status='1'");
-
-								foreach($usersList AS $eachRow)
-								{
-
-									echo '
-									<tr>
-										
-										<div class="col-md-4"><input type="checkbox" name="items" class="col-md-1" value="'.$eachRow['id'].'" id="items"> <label for="items">'.$eachRow['name'].' price: '.$eachRow['price'].'/-</label> <br /></div>
-
-										
-										
-									</tr>
-									';
-								}
-
-								?>
-
-						</div>
-						
-						 
-                  </div>
-                  
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <center><button type="button" class="btn btn-info btn-lg" data-toggle="modal" 
-					  data-target="#recipeModal"data-dismiss="modal" aria-label="Close" name="confirm">Confirm Order</button></center>
-                    </div>
-					
-                  </div>
-
-                </form>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- END Modal -->
-	<!--modal 3-->
-	<div id="paymentModal fileUploadModal" class="modal fade"role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-body">
-					<div class="row ">
-						<center><h3 class="col-md-12"><b>Online Payment</b></h3></center>
-						<h4 class="col-md-12">payment amount : 110 taka</h4>
-						<h4 class="col-md-6">Card: </h4>
-						<input type="text" class="col-md-6" placeholder=""onkeypress='return event.charCode>= 48 && event.charCode <=57' />
-						<button type="submit" class="col-md-6"><b>ok</b></button>
-						<button type="cancel" class="col-md-6 close" data-dismiss="modal" aria-label="Close">>cancel</button>
-						
-					</div>
-					
-				</div>
-			</div>
-		</div>
 	
-	</div>
-	<!-- modal 2-->
-		<div id="recipeModal" class="modal fade" role="dialog" aria-labelledby="reservationModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-			<div class="row">
-			<?php
-					$s_name = $_REQUEST['s_name'];
-					$s_id = $_REQUEST['s_id'];
-					$s_phone = $_REQUEST['s_phone'];
-					$s_email = $_REQUEST['s_email'];
-					$c_date = $_REQUEST['c_date'];
-					$c_time = $_REQUEST['c_time'];
-					$p_date = $_REQUEST['p_date'];
-					$p_time = $_REQUEST['p_time'];
-					$notificatio = $_REQUEST['notification'];
-					$items = $_REQUEST['items'];
 			
-				<div class="col-md-12"><center><h3>Receipt</h3></center></div>
-				<div class="row col-md-6">
-				<h5><b>Name:</b> Sadia Islam Ritu</h5>
-				<h5><b>Student ID:</b> 420420420</h5>
-				<h5><b>Phone No:</b> 017111111111</h5>
-				<h5><b>Email:</b> sadia420@gmail.com</h5>
-				</div>
-				<div class="row col-md-6 form-group">
-					<h4 for="payment"><b>How would you like to pay?</b></h4>
-					<select name="payment" class="form-control" id="payment selectNEWBox">
-						<option value="#">-Select Payment Options-</option>
-						<option value="online" >Online</option>
-						<option value="offline">Offline</option>
-					
-					</select>
-				</div>
-				<div class="col-md-12"><center><h3><b>Ordered Items</b></h3></center></div>
-				<table class="table table-striped table-hover">
-						  <thead>
-							<tr>
-							  <th scope="col">#</th>
-							  <th scope="col">Item Name</th>
-							  <th scope="col">Price</th>
-							</tr>
-						  </thead>
-						  <tbody>
-							<tr>
-							  <th scope="row">1</th>
-							  <td>Burger</td>
-							  <td>60 Taka</td>
-							</tr>
-							<tr>
-							  <th scope="row">2</th>
-							  <td>Coffe</td>
-							  <td>40 Taka</td>
-							</tr>
-							<tr>
-							  <th scope="row">3</th>
-							  <td>Singara</td>
-							  <td>10 Taka</td>
-							</tr>
-							
-						  </tbody>
-						  <thead>
-							<tr>
-							  <th scope="col">#</th>
-							  <th scope="col">Total Price</th>
-							  <th scope="col">110 Taka</th>
-							</tr>
-						  </thead>
-				</table>
-				<div class="col-md-12">
-					<button type="button" class=" btn btn-success" data-dismiss="modal" aria-label="Close">
-					  Done 
-					</button>
-				</div>			
-						</div>
-					  </div>
-					</div>  
-				</div>
-			</div>
-	<!-- end model 2-->
-
+	
     <!-- loader -->
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 	
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/jquery.timepicker.min.js"></script>
-    
-    <script src="js/jquery.animateNumber.min.js"></script>
-    
-
-
-    <script src="js/main.js"></script>
-
-    
-  </body>
-</html>
+   <?php
+	include"footer.php";
+   ?>
