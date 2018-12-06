@@ -48,8 +48,14 @@
         <div class="row align-items-center justify-content-center text-center site-vh-100">
           <div class="col-md-12">
             <h1 class="site-heading site-animate mb-3">Welcome To DIU Canteen</h1>
-            <h2 class="h5 site-subheading mb-5 site-animate">Don't Waste Time,Pre-Book Item & Take It </h2>    
-            <p><a href="order.php" target="_blank" class="btn btn-outline-white btn-lg site-animate">Order Now</a></p>
+            <h2 class="h5 site-subheading mb-5 site-animate">Don't Waste Time,Pre-Book Item & Take It </h2>
+            <?php
+              	if(isset($_SESSION['USER_SESSION'])){
+                  echo '<p><a href="order.php" target="_blank" class="btn btn-outline-white btn-lg site-animate">Order Now</a></p>';
+                }else{
+                  echo '<h1 class="site-heading site-animate mb-3">To Order Login First</h1>';
+                }
+            ?>
           </div>
         </div>
       </div>

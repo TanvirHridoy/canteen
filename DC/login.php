@@ -24,6 +24,8 @@ include "database.php";
 					$_SESSION['SAFE_EXPIRYTIME'] = strtotime("now + 50000 Seconds"); // Expire Howar Time
 					$_SESSION['USER_SESSION'] = $_POST['student_id'];
 					$_SESSION['USER_FULLNAME'] = $userDetails[0]['name'];
+					$_SESSION['USER_EMAIL'] = $userDetails[0]['email'];
+					$_SESSION['USER_PHONE'] = $userDetails[0]['phone_no'];
 					header("Location:index.php");
 				}
 				else
