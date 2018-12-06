@@ -63,7 +63,7 @@ if(!empty($_POST['items']))
 				</div>
 				<div class="row col-md-6 form-group">
 					<h4 for="payment"><b>How would you like to pay?</b></h4>
-					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Online</button>
+					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1" onclick="onlinePaymentClicked()">Online</button>
 					<button type="button" class="btn btn-info btn-lg" >offline</button>
 					
 				</div>
@@ -118,8 +118,9 @@ if(!empty($_POST['items']))
 						<input type="hidden" id="custId" name="p_time" value="<?php echo $p_time;?>">
 						<input type="hidden" id="custId" name="notification" value="<?php echo $notification;?>">
 						<input type="hidden" id="custId" name="price" value="<?php echo $total;?>">
-						<input type="hidden" id="custId" name="p_status" value="paid">
+						<input type="hidden" id="onlinePayment" name="p_status" value="paid">
 						<input type="hidden" id="custId" name="items" value="<?php echo $string_items;?>">
+						
 					<a href=""><button type="submit"  name="final" class="btn btn-success btn-lg"  >
 					  Done
 					</button></a> 

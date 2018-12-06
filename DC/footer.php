@@ -15,6 +15,18 @@
 
     <script src="js/main.js"></script>
 
+    <script language="javascript">
+        function onlinePaymentClicked() {
+            //var person = prompt("Please enter Card number", "xxxx-xxxx-xxxx-xxxx");
+            var person = prompt("Please enter Card number");
+            if (person != null) {
+                document.getElementById("onlinePayment").innerHTML = "paid"
+            }else{
+              document.getElementById("onlinePayment").innerHTML = "not paid"
+            }
+        }
+    </script>
+
     
   </body>
 </html>
