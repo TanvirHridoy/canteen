@@ -118,7 +118,7 @@ if(!empty($_POST['items']))
 						<input type="hidden" id="custId" name="p_time" value="<?php echo $p_time;?>">
 						<input type="hidden" id="custId" name="notification" value="<?php echo $notification;?>">
 						<input type="hidden" id="custId" name="price" value="<?php echo $total;?>">
-						<input type="hidden" id="custId" name="p_status" value="<?php echo $p_status;?>">
+						<input type="hidden" id="custId" name="p_status" value="paid">
 						<input type="hidden" id="custId" name="items" value="<?php echo $string_items;?>">
 					<a href=""><button type="submit"  name="final" class="btn btn-success btn-lg"  >
 					  Done

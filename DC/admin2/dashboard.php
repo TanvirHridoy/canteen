@@ -14,7 +14,7 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Notice / Event / Seminar Input</li>
+        <li class="breadcrumb-item active">Welcome Here</li>
       </ol>
       <!-- Icon Cards-->
       

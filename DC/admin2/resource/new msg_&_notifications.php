@@ -52,30 +52,18 @@ foreach($usersList AS $eachRow)
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
             <h6 class="dropdown-header">New Alerts:</h6>
             <div class="dropdown-divider"></div>
-			<?php 
 
-include ("../database.php");
-
-$usersList = $conn1->query("SELECT * FROM `task` order by `id` desc limit 3");
-
-foreach($usersList AS $eachRow)
-{
-
-	echo '
 	
 	
             <a class="dropdown-item" href="list-task.php">
               <span class="text-success">
                 <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>'.$eachRow['title'].'</strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>hi</strong>
               </span>
-              <span class="small float-right text-muted">'.$eachRow['date'].'</span>
-              <div class="dropdown-message small">'.$eachRow['details'].'</div>
+              <span class="small float-right text-muted">hi</span>
+              <div class="dropdown-message small">hi</div>
             </a>
-         ';
-}
-
-?>
+    
             <a class="dropdown-item small" href="list-task.php">View all alerts</a>
           </div>
         </li>

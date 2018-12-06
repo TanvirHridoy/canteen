@@ -508,23 +508,23 @@
               </div>
             </div>
           </div>
-
+<?php include "feedback.php";?>
           <div class="col-md-7 mb-5 site-animate">
-            <form action="" method="post">
+            <form action="#" method="post">
               <div class="form-group">
                 <label for="name" class="sr-only">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Name">
+                <input type="text"  name="name"class="form-control" id="name" placeholder="Name">
               </div>
               <div class="form-group">
                 <label for="email" class="sr-only">Email</label>
-                <input type="text" class="form-control" id="email" placeholder="Email">
+                <input type="text" name="email" class="form-control" id="email" placeholder="Email">
               </div>
               <div class="form-group">
                 <label for="message" class="sr-only">Message</label>
-                <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write your message"></textarea>
+                <textarea  id="message" name="massage" cols="30" rows="10" class="form-control" placeholder="Write your message"></textarea>
               </div>
               <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-lg" value="Send Message">
+                <input type="submit" name="send" class="btn btn-primary btn-lg" value="Send">
               </div>
             </form>
           </div>

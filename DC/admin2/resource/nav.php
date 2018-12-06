@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="dashboard.php">SAATRONG SYSTEMS ADMIN</a>
+    <a class="navbar-brand" href="dashboard.php">DIU CANTEEN ADMIN</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,98 +14,46 @@
 		
 
 		
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages22" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-user-circle-o"></i>
-            <span class="nav-link-text">Teachers</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages22">
-            <li>
-              <a href="teacher.php">New Teacher</a>
-            </li>
-            <li>
-              <a href="list-teacher.php">List of Teacher</a>
-            </li>
-          </ul>
-        </li>
+		
         
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages1232" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-user-circle-o"></i>
-            <span class="nav-link-text">Press & Printing</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages1232">
-            <li>
-              <a href="press.php">New P & P</a>
-            </li>
-            <li>
-              <a href="list-press.php">List of P & P</a>
-            </li>
-          </ul>
-        </li>
+        
 		
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages225" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-user-circle-o"></i>
-            <span class="nav-link-text">Course"s</span>
+            <span class="nav-link-text">Order's</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages225">
             <li>
-              <a href="new-course.php">New Course</a>
+              <a href="list-cooking.php">Order In cooking</a>
             </li>
             <li>
-              <a href="list-course.php">List of Course</a>
-            </li>
-          </ul>
-        </li>
-		
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages232" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-picture-o"></i>
-            <span class="nav-link-text">Slider's</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages232">
-            <li>
-              <a href="new-slider.php">New Slider</a>
-            </li>
-            <li>
-              <a href="list-slider.php">List of Slider</a>
-            </li>
-          </ul>
-        </li>		
-		
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages301" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-picture-o"></i>
-            <span class="nav-link-text">Student's Gallery</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages301">
-            <li>
-              <a href="gallery.php">New Student's Gallery</a>
-            </li>
-            <li>
-              <a href="list-gallery.php">List Student's Gallery</a>
-            </li>
-          </ul>
-        </li>
-		
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Slider's Menu">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages43" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-comments"></i>
-            <span class="nav-link-text">Notice / Event / Seminar</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages43">
-            <li>
-              <a href="list-notice.php">List Of Notice</a>
-            </li>
-            <li>
-              <a href="list-event.php">List of Event</a>
+              <a href="list-delivered.php">Order Which Delivered</a>
             </li>
 			<li>
-              <a href="list-task.php">List of Seminar</a>
+              <a href="list-canceled.php">Order Which Delivered</a>
             </li>
-           </ul>
+          </ul>
         </li>
+		
+				
+		
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents9991" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-user-secret"></i>
+            <span class="nav-link-text">students</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents9991">
+            <li>
+              <a href="new-student.php">Create New Student login</a>
+            </li>
+            <li>
+              <a href="list-student.php">List of Students's</a>
+            </li>
+          </ul>
+        </li>
+		
+		
 		
 
 		

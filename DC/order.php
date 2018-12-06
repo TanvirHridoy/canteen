@@ -70,9 +70,9 @@
 						
 						<div class="col-md-12 form-group order">
 						<center><h4>-:Notification Time:-</h4></center><br />
-							<input type="radio"  class="col-md-6 " name="notification" value="1" id="items">10 minute</checkbox><br />
-							<input type="radio" class="col-md-6 " name="notification"  value="2" id="items">20 minute</checkbox><br />
-							<input type="radio" class="col-md-6"  name="notification"  value="3" id="items">30 minute</checkbox><br />
+							<input type="radio"  class="col-md-6 " name="notification" value="10" id="items">10 minute</checkbox><br />
+							<input type="radio" class="col-md-6 " name="notification"  value="20" id="items">20 minute</checkbox><br />
+							<input type="radio" class="col-md-6"  name="notification"  value="30" id="items">30 minute</checkbox><br />
 						</div>
 					  </div>
 					</div>

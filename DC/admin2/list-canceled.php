@@ -13,14 +13,14 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">P&P / P&P's List</li>
+        <li class="breadcrumb-item active">Admin / List canceled orders</li>
       </ol>
       <!-- Icon Cards-->
       
 	  
 	  
 	  
-	   <?php include("resource/list-press.php")?>
+	   <?php include("resource/list-canceled.php")?>
       
       
     </div>

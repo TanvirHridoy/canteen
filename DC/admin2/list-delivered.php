@@ -13,14 +13,14 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Notice & Event & Task / List-notice's</li>
+        <li class="breadcrumb-item active">Admin / List Delivered Orders</li>
       </ol>
       <!-- Icon Cards-->
       
 	  
 	  
 	  
-	   <?php include("resource/list-notice.php")?>
+	   <?php include("resource/list-delivered.php")?>
       
       
     </div>

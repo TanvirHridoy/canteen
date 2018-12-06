@@ -5,7 +5,7 @@
 						$delId = $_REQUEST['ds'];
 						//$delId = $_GET['tid'];
 						
-						$delQuery = $conn1->prepare("DELETE FROM `teacher` WHERE `id`=:GOT_ID");
+						$delQuery = $conn1->prepare("DELETE FROM `order` WHERE `id`=:GOT_ID");
 						$delQuery->bindValue(':GOT_ID', $delId, PDO::PARAM_STR);
 						$delQuery->execute();
 						$deletedRow = $delQuery->rowCount();
@@ -34,10 +34,13 @@
 
 <table class="table table-condensed table-bordered table-responsive">
 	<tr>
-		<th>Name</th>
-		<th>Designation</th>
-		<th>Email</th>
-		<th>Picture</th>
+		<th>Student <br />Id & Name</th>
+		<th>ordered <br />time & Date</th>
+		<th>Order <br />prefered <br />time& date</th>
+		
+		<th>Price</th>
+		<th>payment <br />status <br /></th>
+		<th>Notification <br /> time</th>
 		<th>Operations</th>
 		
 	</tr>
@@ -45,24 +48,39 @@
 
 include ("resource/database.php");
 
-$usersList = $conn1->query("SELECT * FROM `teacher`");
+$usersList = $conn1->query("SELECT * FROM `order` WHERE status='delivered' ORDER BY id DESC");
 
 foreach($usersList AS $eachRow)
-{
-
-	echo '
+{	
+	/*$usersListt = $conn1->query("SELECT * FROM `o_items` WHERE order_id=".$eachRow['id']);
+		foreach($usersListt AS $eachRoww)
+{	
+			$usersListtt = $conn1->query("SELECT * FROM `items` WHERE id=".$eachRoww['item_id']);
+			foreach($usersListtt AS $eachRowww)
+			{
+			echo'
+<td>'.$eachRowww['name'].' <br /></td>';}}*/
+				echo '
+	
 	<tr>
-		<td>'.$eachRow['name'].'</td>
-		<td>'.$eachRow['dg'].'</td>
-		<td>'.$eachRow['email'].'</td>
-		<td><img src="../admin2/Upload/teacher/'.$eachRow['picture'].'" width="50px" " height="50px"></td>
+		<td>'.$eachRow['s_id'].'</td>
+		<td>'.$eachRow['c_time'].'<br />'.$eachRow['c_date'].'</td>
+		<td>'.$eachRow['p_time'].'<br />'.$eachRow['p_date'].'</td>
+		
+		
+		
+		<td>'.$eachRow['price'].' taka</td>
+		<td> '.$eachRow['p_status'].'</td>
+		<td>'.$eachRow['notification'].' min</td>
         <td>
 		
-		<a href="edit-teacher.php?es='.$eachRow['id'].'" > <input type="submit" value="Edit"/> </a>								
-		<a href="list-teacher.php?ds='.$eachRow['id'].'" > <input name="ds" type="submit" value="Delete" /></a></td>
+		<a href="edit-status.php?es='.$eachRow['id'].'" > <input type="submit" value="Update status"/> </a>								
+		<a href="list-delivered.php?ds='.$eachRow['id'].'" > <input name="ds" type="submit" value="Delete" /></a></td>
 		
 	</tr>
 	';
+	
+
 }
 
 ?>

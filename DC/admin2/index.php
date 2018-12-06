@@ -45,7 +45,7 @@ include "../database.php";
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Admin - Saatorng Systems</title>
+  <title>Admin - DIU Canteen</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -57,7 +57,7 @@ include "../database.php";
 <body class="bg-dark">
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Admin Login (Saatrongsystems)
+      <div class="card-header">Admin Login (DIU Canteen)
         <a href="https://bpi.edu.bd" style="text-decoration:none; padding-left:206px; color:black;">Home</a>
       </div>
       <div class="card-body">
@@ -83,10 +83,7 @@ include "../database.php";
         </form>
 		
 		
-       <!-- <div class="text-center">
-          <a class="d-block small mt-3" href="register.html">Register an Account</a>
-          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
-        </div>-->
+       
       </div>
     </div>
   </div>

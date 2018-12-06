@@ -4,13 +4,13 @@
 				if(isset($_POST['update']))	
 				{
 						$updatedata = $conn1->exec("
-						UPDATE `notice` 
+						UPDATE `order` 
 						SET
-							`date`='".@$_POST['date']."',
-							`title`='".@$_POST['title']."',
-							`details`='".@$_POST['details']."'
 							
-						WHERE `id`= '".@$_POST['id']."'
+							`status`='".@$_POST['status']."'
+
+						
+						WHERE `id`= '".$_POST['id']."'
 					");					
 					if( $updatedata > 0 )
 					{
@@ -45,7 +45,7 @@
 					':EDITID' => $_SESSION['edit_cat_edit_id']
 				);
 				
-				$query = $conn1->prepare("SELECT * FROM `notice` WHERE `id`=:EDITID");
+				$query = $conn1->prepare("SELECT * FROM `order` WHERE `id`=:EDITID");
 				$query->execute($valToBind);
 				$userDetails = $query->fetchAll(PDO::FETCH_ASSOC);
 				
@@ -65,27 +65,22 @@
 
 <form action="" method="post" enctype="multipart/form-data">
 	<div class="row">
-		<div class="col-md-1">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Current Status :"'.$userDetails['status'].'"</label>
+				<select name="status" value="'.$userDetails['status'].'" id="exampleInputEmail1" style="width: 100%; height: 40px; border-radius: 5px; border: 1px solid rgb(204, 204, 204);" >
+					<option value="#">Select...</option>
+					<option value="cooking">Cooking mode</option>
+					<option value="delivered">Delivered Mood </option>
+					<option value="canceled">Canceled Mood</option>
+				</select>
+			</div>
+			  
 			
 		</div>
-		<div class="col-md-10 ">
-			
-		  
-		  <div class="form-group">
-            <label for="exampleInputEmail1">Notice Title:</label>
-            <input class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" name="title" value="'.$userDetails['title'].'" placeholder="Provide Title">
-          </div>
-		  
-		  <div class="form-group">
-            <label for="exampleInputEmail1">Notice Date:</label>
-            <input class="form-control" id="exampleInputEmail1" type="date" aria-describedby="emailHelp" name="date" value="'.$userDetails['date'].'" placeholder="Provide date">
-          </div>
-		  
-		  <div class="form-group">
-            <label for="exampleInputEmail1">Notice Detials:</label>
-            <input class="form-control" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" name="details" value="'.$userDetails['details'].'" placeholder="Provide details">
-          </div>
-		  
+		
+	</div>
+
     <div class="row">
 	
 		<div class="col-md-12">
@@ -100,4 +95,3 @@
 	}
 
 ?>
-<!--old data get code end-->

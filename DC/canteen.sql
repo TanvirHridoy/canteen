@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2018 at 12:11 AM
+-- Generation Time: Dec 06, 2018 at 04:09 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `canteen`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `massage` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `name`, `email`, `massage`) VALUES
+(1, 'tanvir hridoy', 'anxioushridoy2@gmail.com', 'hi');
 
 -- --------------------------------------------------------
 
@@ -65,10 +85,10 @@ CREATE TABLE `order` (
   `c_time` varchar(50) NOT NULL,
   `p_date` varchar(50) NOT NULL,
   `p_time` varchar(50) NOT NULL,
-  `price` varchar(10) NOT NULL,
+  `price` int(10) NOT NULL,
   `p_status` varchar(10) NOT NULL,
   `notification` varchar(100) NOT NULL,
-  `status` int(10) NOT NULL DEFAULT '1'
+  `status` varchar(10) NOT NULL DEFAULT 'cooking'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -76,16 +96,18 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`id`, `s_id`, `c_date`, `c_time`, `p_date`, `p_time`, `price`, `p_status`, `notification`, `status`) VALUES
-(6, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '15', '', '1', 1),
-(7, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '15', '1', '2', 1),
-(8, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '15', '1', '2', 1),
-(9, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '216', '1', '1', 1),
-(10, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '216', '1', '1', 1),
-(11, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '216', '1', '1', 1),
-(12, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '216', '1', '1', 1),
-(13, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '216', '1', '1', 1),
-(14, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '216', '1', '1', 1),
-(15, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', '216', '1', '1', 1);
+(6, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', 15, 'not paid', '1', 'cooking'),
+(7, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', 15, 'paid', '2', 'delivered'),
+(8, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', 15, 'not paid', '2', 'canceled'),
+(10, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', 216, 'paid', '1', '1'),
+(11, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', 216, '1', '1', '1'),
+(12, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', 216, '1', '1', '1'),
+(13, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', 216, '1', '1', '1'),
+(14, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', 216, '1', '1', '1'),
+(15, '253716', '2018-12-04', '11:11', '01:00:pm', '2018-12-06', 216, '1', '1', '1'),
+(16, '21837586351', '2018-12-06', '11:11', '2018-12-07', '01:30:pm', 65, '1', '2', '1'),
+(17, '253716', '2018-12-06', '11:11', '2018-12-06', '02:00:pm', 56, '1', '', 'cooking'),
+(18, '21837586351', '2018-12-06', '11:11', '2018-12-15', '12:30:pm', 56, '1', '30', 'delivered');
 
 -- --------------------------------------------------------
 
@@ -96,78 +118,84 @@ INSERT INTO `order` (`id`, `s_id`, `c_date`, `c_time`, `p_date`, `p_time`, `pric
 CREATE TABLE `o_items` (
   `id` int(11) NOT NULL,
   `order_id` int(100) NOT NULL,
-  `item_id` int(100) NOT NULL,
-  `item_name` varchar(100) DEFAULT NULL
+  `item_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `o_items`
 --
 
-INSERT INTO `o_items` (`id`, `order_id`, `item_id`, `item_name`) VALUES
-(1, 9, 1, NULL),
-(2, 9, 4, NULL),
-(3, 9, 5, NULL),
-(4, 9, 6, NULL),
-(5, 9, 8, NULL),
-(6, 9, 10, NULL),
-(7, 9, 11, NULL),
-(8, 9, 12, NULL),
-(9, 9, 13, NULL),
-(10, 10, 1, NULL),
-(11, 10, 4, NULL),
-(12, 10, 5, NULL),
-(13, 10, 6, NULL),
-(14, 10, 8, NULL),
-(15, 10, 10, NULL),
-(16, 10, 11, NULL),
-(17, 10, 12, NULL),
-(18, 10, 13, NULL),
-(19, 11, 1, NULL),
-(20, 11, 4, NULL),
-(21, 11, 5, NULL),
-(22, 11, 6, NULL),
-(23, 11, 8, NULL),
-(24, 11, 10, NULL),
-(25, 11, 11, NULL),
-(26, 11, 12, NULL),
-(27, 11, 13, NULL),
-(28, 12, 1, NULL),
-(29, 12, 4, NULL),
-(30, 12, 5, NULL),
-(31, 12, 6, NULL),
-(32, 12, 8, NULL),
-(33, 12, 10, NULL),
-(34, 12, 11, NULL),
-(35, 12, 12, NULL),
-(36, 12, 13, NULL),
-(37, 13, 1, NULL),
-(38, 13, 4, NULL),
-(39, 13, 5, NULL),
-(40, 13, 6, NULL),
-(41, 13, 8, NULL),
-(42, 13, 10, NULL),
-(43, 13, 11, NULL),
-(44, 13, 12, NULL),
-(45, 13, 13, NULL),
-(46, 14, 1, NULL),
-(47, 14, 4, NULL),
-(48, 14, 5, NULL),
-(49, 14, 6, NULL),
-(50, 14, 8, NULL),
-(51, 14, 10, NULL),
-(52, 14, 11, NULL),
-(53, 14, 12, NULL),
-(54, 14, 13, NULL),
-(55, 15, 1, NULL),
-(56, 15, 4, NULL),
-(57, 15, 5, NULL),
-(58, 15, 6, NULL),
-(59, 15, 8, NULL),
-(60, 15, 10, NULL),
-(61, 15, 11, NULL),
-(62, 15, 12, NULL),
-(63, 15, 13, NULL);
+INSERT INTO `o_items` (`id`, `order_id`, `item_id`) VALUES
+(1, 9, 1),
+(2, 9, 4),
+(3, 9, 5),
+(4, 9, 6),
+(5, 9, 8),
+(6, 9, 10),
+(7, 9, 11),
+(8, 9, 12),
+(9, 9, 13),
+(10, 10, 1),
+(11, 10, 4),
+(12, 10, 5),
+(13, 10, 6),
+(14, 10, 8),
+(15, 10, 10),
+(16, 10, 11),
+(17, 10, 12),
+(18, 10, 13),
+(19, 11, 1),
+(20, 11, 4),
+(21, 11, 5),
+(22, 11, 6),
+(23, 11, 8),
+(24, 11, 10),
+(25, 11, 11),
+(26, 11, 12),
+(27, 11, 13),
+(28, 12, 1),
+(29, 12, 4),
+(30, 12, 5),
+(31, 12, 6),
+(32, 12, 8),
+(33, 12, 10),
+(34, 12, 11),
+(35, 12, 12),
+(36, 12, 13),
+(37, 13, 1),
+(38, 13, 4),
+(39, 13, 5),
+(40, 13, 6),
+(41, 13, 8),
+(42, 13, 10),
+(43, 13, 11),
+(44, 13, 12),
+(45, 13, 13),
+(46, 14, 1),
+(47, 14, 4),
+(48, 14, 5),
+(49, 14, 6),
+(50, 14, 8),
+(51, 14, 10),
+(52, 14, 11),
+(53, 14, 12),
+(54, 14, 13),
+(55, 15, 1),
+(56, 15, 4),
+(57, 15, 5),
+(58, 15, 6),
+(59, 15, 8),
+(60, 15, 10),
+(61, 15, 11),
+(62, 15, 12),
+(63, 15, 13),
+(64, 16, 1),
+(65, 16, 6),
+(66, 16, 12),
+(67, 17, 4),
+(68, 17, 8),
+(69, 18, 4),
+(70, 18, 8);
 
 -- --------------------------------------------------------
 
@@ -189,8 +217,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `student_id`, `password`, `email`, `phone_no`) VALUES
-(1, 'sadia 420', '420420420420', '12345678', 'sadia420@gmail.com', '01711111111'),
-(2, 'tanvir hridoy', '21180200823', '12345678', 'hridoy@gmail.com', '01755091665');
+(1, 'sadiaislam', '132-876-99999', '', 'sadia@gmail.com', '01711111111');
 
 -- --------------------------------------------------------
 
@@ -200,15 +227,28 @@ INSERT INTO `students` (`id`, `name`, `student_id`, `password`, `email`, `phone_
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `phone` varchar(20) NOT NULL,
+  `uname` varchar(100) NOT NULL,
+  `uemail` varchar(100) NOT NULL,
+  `uphone` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `uname`, `uemail`, `uphone`, `password`) VALUES
+(1, 'sadia', 'sadia@gmail.com', '017111111111', '12345678');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `items`
@@ -243,12 +283,18 @@ ALTER TABLE `students`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `phone` (`phone`);
+  ADD UNIQUE KEY `email` (`uemail`),
+  ADD UNIQUE KEY `phone` (`uphone`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `items`
@@ -260,25 +306,25 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `o_items`
 --
 ALTER TABLE `o_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483647;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

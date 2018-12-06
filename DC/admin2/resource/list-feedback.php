@@ -36,7 +36,6 @@
 	<tr>
                   <th>Name</th>
 				  <th>Email</th>
-				  <th>Subject</th>
                   <th>Message</th>
                   <th>Operations</th>
 		
@@ -54,7 +53,6 @@ foreach($usersList AS $eachRow)
 	<tr>
 		<td>'.$eachRow['name'].'</td>
 		<td>'.$eachRow['email'].'</td>
-		<td>'.$eachRow['subject'].'</td>
 		<td>'.$eachRow['massage'].'</td>
         <td>
 		<a href="feedback.php?ds='.$eachRow['id'].'" > <input name="ds" type="submit" value="Delete"/></a>
